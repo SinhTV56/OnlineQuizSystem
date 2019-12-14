@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Dec 8, 2019, 1:54:40 PM
-    Author     : XV
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
