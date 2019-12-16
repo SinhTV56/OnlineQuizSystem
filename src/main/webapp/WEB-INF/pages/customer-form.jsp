@@ -1,5 +1,5 @@
 <%-- 
-    Document   : customer-form
+    Document   : question-form
     Created on : Dec 8, 2019, 12:16:27 PM
     Author     : XV
 --%>
@@ -23,14 +23,14 @@
 		<h2 class="text-center">Spring MVC + Hibernate + JSP + MySQL Example</h2>
 		<div class="panel panel-info">
 		    <div class="panel-heading">
-			<div class="panel-title">Add Customer</div>
+			<div class="panel-title">Add Question</div>
 		    </div>
 		    <div class="panel-body">
-			<form:form action="saveCustomer" cssClass="form-horizontal"
-				   method="post" modelAttribute="customer">
+			<form:form action="saveQuestion" cssClass="form-horizontal"
+				   method="post" modelAttribute="question">
 
-			    <!-- need to associate this data with customer id -->
-			    <form:hidden path="id" />
+			    <!-- need to associate this data with question id -->
+			    <form:hidden path="question_id" />
 
 			    <div class="form-group">
 				<label for="firstname" class="col-md-3 control-label">First

@@ -10,26 +10,26 @@ import org.springframework.stereotype.Service;
 public class QuestionService implements QuestionServiceIF{
 
     @Autowired
-    QuestionDAO customerDaoIF; 
+    QuestionDAO questionDao; 
     
     @Override
-    public List<Question> getQuestions() {
-	return (List)customerDaoIF.findAll();
+public List<Question> getQuestions() {
+	return (List)questionDao.findAll();
     }
 
     @Override
     public void saveQuestion(Question theQuestion) {
-	customerDaoIF.save(theQuestion);
+	questionDao.save(theQuestion);
     }
 
     @Override
-    public Question getQuestion(int theId) {
-	return customerDaoIF.findById(theId).get();
+    public Question getQuestion(int question_id) {
+	return questionDao.findById(question_id).get();
     }
 
     @Override
-    public void deleteQuestion(int theId) {
-	customerDaoIF.deleteById(theId);
+    public void deleteQuestion(int question_id) {
+	questionDao.deleteById(question_id);
     }
     
 }

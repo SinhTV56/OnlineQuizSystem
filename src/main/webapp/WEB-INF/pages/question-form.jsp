@@ -24,35 +24,35 @@
                     </ul>
                 </div>
                 <div class="col-8">
-                           <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Question content</label>
-                <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp">
-            </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Question content</label>
+                            <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp">
+                        </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Answer:</label>
-                <input type="text" class="form-control" id="exampleInput2">
-            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Answer:</label>
+                            <input type="text" class="form-control" id="exampleInput2">
+                        </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Answer 1:</label>
-                <input type="text" class="form-control" id="exampleInput2">
-            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Answer 1:</label>
+                            <input type="text" class="form-control" id="exampleInput2">
+                        </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Answer 2:</label>
-                <input type="text" class="form-control" id="exampleInput2">
-            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Answer 2:</label>
+                            <input type="text" class="form-control" id="exampleInput2">
+                        </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Answer 3:</label>
-                <input type="text" class="form-control" id="exampleInput2">
-            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Answer 3:</label>
+                            <input type="text" class="form-control" id="exampleInput2">
+                        </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="submit" class="btn btn-primary">Cancel</button>
-        </form>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Cancel</button>
+                    </form>
                 </div>
             </div>
         </div>

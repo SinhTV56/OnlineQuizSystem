@@ -19,49 +19,53 @@
     <body>
 	<div class="container">
 	    <div class="col-md-offset-1 col-md-10">
-		<h2>CRM - Customer Relationship Manager</h2>
+		<h2>CRM - Question Relationship Manager</h2>
 		<hr />
 
-		<input type="button" value="Add Customer"
+		<input type="button" value="Add Question"
 		       onclick="window.location.href = 'showForm'; return false;"
 		       class="btn btn-primary" />
 		<br/><br/>
 		<div class="panel panel-info">
 		    <div class="panel-heading">
-			<div class="panel-title">Customer List</div>
+			<div class="panel-title">Question List</div>
 		    </div>
 		    <div class="panel-body">
 			<table class="table table-striped table-bordered">
 			    <tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Action</th>
+				<th>Question Content</th>
+				<th>Correct Answer</th>
+				<th>Answer 1</th>
+				<th>Answer 2</th>
+                                <th>Answer 3</th>
 			    </tr>
 
-			    <!-- loop over and print our customers -->
-			    <c:forEach var="tempCustomer" items="${customers}">
+			    <!-- loop over and print our questions -->
+			    <c:forEach var="tempQuestion" items="${questions}">
 
 				<!-- construct an "update" link with customer id -->
-				<c:url var="updateLink" value="/customer/updateForm">
-				    <c:param name="customerId" value="${tempCustomer.id}" />
+				<c:url var="updateLink" value="/question/updateForm">
+				    <c:param name="questionId" value="${tempQuestion.question_id}" />
 				</c:url>
 
 				<!-- construct an "delete" link with customer id -->
-				<c:url var="deleteLink" value="/customer/delete">
-				    <c:param name="customerId" value="${tempCustomer.id}" />
+				<c:url var="deleteLink" value="/question/delete">
+				    <c:param name="questionId" value="${tempQuestion.question_id}" />
 				</c:url>
 
 				<tr>
-				    <td>${tempCustomer.firstName}</td>
-				    <td>${tempCustomer.lastName}</td>
-				    <td>${tempCustomer.email}</td>
+				    <td>${tempQuestion.content}</td>
+				    <td>${tempQuestion.correct_answer}</td>
+				    <td>${tempQuestion.answer_1}</td>
+                                    <td>${tempQuestion.answer_2}</td>
+				    <td>${tempQuestion.answer_3}</td>
 
 				    <td>
 					<!-- display the update link --> 
 					<a href="${updateLink}">Update</a>| 
-					<a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this customer?')))
-					    return false">Delete</a>
+                                        
+					<a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this question?')))
+					    return false"><img src="../../resources/images/delButton.png" width="100%" height="100%"alt=""/></a>
 				    </td>
 				</tr>
 			    </c:forEach>

@@ -13,43 +13,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/question")
 public class QuestionController {
 
     @Autowired
-    private QuestionService customerService;
+    private QuestionService questionService;
 
     @GetMapping("/list")
     public String listQuestions(Model theModel) {
-	List< Question> theQuestions = customerService.getQuestions();
-	theModel.addAttribute("customers", theQuestions);
-	return "list-customer";
+	List<Question> theQuestions = questionService.getQuestions();
+	theModel.addAttribute("questions", theQuestions);
+	return "list-question";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model theModel) {
 	Question theQuestion = new Question();
-	theModel.addAttribute("customer", theQuestion);
+	theModel.addAttribute("questions", theQuestion);
 	return "customer-form";
     }
 
     @PostMapping("/saveQuestion")
-    public String saveQuestion(@ModelAttribute("customer") Question theQuestion) {
-	customerService.saveQuestion(theQuestion);
-	return "redirect:/customer/list";
+    public String saveQuestion(@ModelAttribute("question") Question theQuestion) {
+	questionService.saveQuestion(theQuestion);
+	return "redirect:/question/list";
     }
 
     @GetMapping("/updateForm")
-    public String showFormForUpdate(@RequestParam("customerId") int theId,
+    public String showFormForUpdate(@RequestParam("questionId") int question_id,
 	    Model theModel) {
-	Question theQuestion = customerService.getQuestion(theId);
-	theModel.addAttribute("customer", theQuestion);
-	return "question-form";
+	Question theQuestion = questionService.getQuestion(question_id);
+	theModel.addAttribute("questions", theQuestion);
+	return "customer-form";
     }
 
     @GetMapping("/delete")
-    public String deleteQuestion(@RequestParam("customerId") int theId) {
-	customerService.deleteQuestion(theId);
-	return "redirect:/customer/list";
+    public String deleteQuestion(@RequestParam("questionId") int question_id) {
+	questionService.deleteQuestion(question_id);
+	return "redirect:/question/list";
     }
 }

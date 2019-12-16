@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-	<a href="<c:url value="/customer/list" />">List of customer</a>
+	<a href="<c:url value="/question/list" />">List of question</a>
     </body>
 </html>
