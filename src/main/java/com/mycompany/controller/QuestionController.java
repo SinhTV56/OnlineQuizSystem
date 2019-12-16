@@ -30,7 +30,7 @@ public class QuestionController {
     public String showFormForAdd(Model theModel) {
 	Question theQuestion = new Question();
 	theModel.addAttribute("customer", theQuestion);
-	return "question-form";
+	return "customer-form";
     }
 
     @PostMapping("/saveQuestion")
