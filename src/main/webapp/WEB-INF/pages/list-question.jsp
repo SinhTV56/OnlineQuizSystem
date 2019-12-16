@@ -19,7 +19,7 @@
     <body>
 	<div class="container">
 	    <div class="col-md-offset-1 col-md-10">
-		<h2>CRM - Question Relationship Manager</h2>
+		<h2>Online Quiz Management!</h2>
 		<hr />
 
 		<input type="button" value="Add Question"

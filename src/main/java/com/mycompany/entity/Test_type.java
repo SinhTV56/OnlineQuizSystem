@@ -1,6 +1,7 @@
 package com.mycompany.entity;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ public class Test_type {
     private int test_type_id;
     private String test_type_name;
     
-    @OneToMany(mappedBy = "test_type", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "test_type", fetch = FetchType.LAZY)
     private List<Test> tests;
     public Test_type() {
     }

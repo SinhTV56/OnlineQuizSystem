@@ -7,7 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-	<a href="<c:url value="/question/list" />">List of question</a>
+        <h1>Welcome to Online Quiz Management!</h1>
+	<a href="<c:url value="/question/list" />">Menu</a>
     </body>
 </html>

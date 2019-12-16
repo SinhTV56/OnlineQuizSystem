@@ -18,7 +18,7 @@ public class Question {
     private String content;
     private String correct_answer;
    @ManyToMany
-   private List<Test> test_question;
+    private List<Test> questions;
     public Question() {
     }
 
