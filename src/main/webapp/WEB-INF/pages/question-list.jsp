@@ -19,25 +19,22 @@
     <body>
 	<div class="container">
 	    <div class="col-md-offset-1 col-md-10">
-		<h2>Online Quiz Management!</h2>
+		<h2>QUESTION MANAGEMENT</h2>
 		<hr />
 
-		<input type="button" value="Add Question"
+		<input type="button" value="Create Question"
 		       onclick="window.location.href = 'showForm'; return false;"
-		       class="btn btn-primary" />
+		       class="btn btn-primary"/>
 		<br/><br/>
 		<div class="panel panel-info">
-		    <div class="panel-heading">
-			<div class="panel-title">Question List</div>
-		    </div>
-		    <div class="panel-body">
 			<table class="table table-striped table-bordered">
-			    <tr>
+                            <tr class="th-question">
 				<th>Question Content</th>
 				<th>Correct Answer</th>
 				<th>Answer 1</th>
 				<th>Answer 2</th>
                                 <th>Answer 3</th>
+                                <th>Action</th>
 			    </tr>
 
 			    <!-- loop over and print our questions -->
@@ -65,12 +62,11 @@
 					<a href="${updateLink}">Update</a>| 
                                         
 					<a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this question?')))
-					    return false"><img src="../../resources/images/delButton.png" width="100%" height="100%"alt=""/></a>
+					    return false">Delete</a>
 				    </td>
 				</tr>
 			    </c:forEach>
 			</table>
-		    </div>
 		</div>
 	    </div>
 	</div>

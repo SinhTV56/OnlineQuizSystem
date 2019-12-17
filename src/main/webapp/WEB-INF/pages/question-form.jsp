@@ -1,65 +1,81 @@
+<%-- 
+    Document   : question-form
+    Created on : Dec 8, 2019, 12:16:27 PM
+    Author     : XV
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Create Question</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+	<script src="<c:url value="/resources/js/jquery-3.4.1.min.js" />"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        <div class ="container">
-            <div class ="row">
-                <div class ="col-4">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Question Management</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" style="color: aliceblue">Test Management</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-8">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Question content</label>
-                            <input type="text" class="form-control" id="exampleInput1" aria-describedby="emailHelp">
-                        </div>
+	<div class="container">
+	    <div class="col-md-offset-2 col-md-7">
+		<h2 class="text-center">Create Question</h2>
+		<div class="panel panel-info">
+		    <div class="panel-body">
+			<form:form action="saveQuestion" cssClass="form-horizontal"
+				   method="post" modelAttribute="question">
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Answer:</label>
-                            <input type="text" class="form-control" id="exampleInput2">
-                        </div>
+			    <!-- need to associate this data with question id -->
+			    <form:hidden path="question_id" />
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Answer 1:</label>
-                            <input type="text" class="form-control" id="exampleInput2">
-                        </div>
+			    <div class="form-group">
+				<label for="content" class="col-md-3 control-label">Question Content</label>
+				<div class="col-md-9">
+				    <form:input path="content" cssClass="form-control" />
+				</div>
+			    </div>
+			    <div class="form-group">
+				<label for="correct_answer" class="col-md-3 control-label">Answer</label>
+				<div class="col-md-9">
+				    <form:input path="correct_answer" cssClass="form-control" />
+				</div>
+			    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Answer 2:</label>
-                            <input type="text" class="form-control" id="exampleInput2">
-                        </div>
+			    <div class="form-group">
+				<label for="answer_1" class="col-md-3 control-label">Answer 1</label>
+				<div class="col-md-9">
+				    <form:input path="answer_1" cssClass="form-control" />
+				</div>
+			    </div>
+                                
+                                <div class="form-group">
+				<label for="answer_2" class="col-md-3 control-label">Answer 2</label>
+				<div class="col-md-9">
+				    <form:input path="answer_2" cssClass="form-control" />
+				</div>
+			    </div>
+                                
+                                <div class="form-group">
+				<label for="answer_3" class="col-md-3 control-label">Answer 3</label>
+				<div class="col-md-9">
+				    <form:input path="answer_3" cssClass="form-control" />
+				</div>
+			    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Answer 3:</label>
-                            <input type="text" class="form-control" id="exampleInput2">
-                        </div>
+			    <div class="form-group">
+				<!-- Button -->
+				<div class="col-md-offset-3 col-md-9">
+				    <form:button class="btn btn-primary">Save</form:button>
+                                    <input type="button" value="Cancel"
+                                           onclick="window.location.href = 'list'; return false;"class="btn btn-primary"/>
+				    </div>
+				</div>
 
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="submit" class="btn btn-primary">Cancel</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+			</form:form>
+		    </div>
+		</div>
+	    </div>
+	</div>
     </body>
-    <script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</script>
 </html>

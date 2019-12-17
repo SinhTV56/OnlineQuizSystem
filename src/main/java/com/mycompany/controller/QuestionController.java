@@ -23,14 +23,14 @@ public class QuestionController {
     public String listQuestions(Model theModel) {
 	List<Question> theQuestions = questionService.getQuestions();
 	theModel.addAttribute("questions", theQuestions);
-	return "list-question";
+	return "question-list";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model theModel) {
 	Question theQuestion = new Question();
-	theModel.addAttribute("questions", theQuestion);
-	return "customer-form";
+	theModel.addAttribute("question", theQuestion);
+	return "question-form";
     }
 
     @PostMapping("/saveQuestion")
@@ -43,8 +43,8 @@ public class QuestionController {
     public String showFormForUpdate(@RequestParam("questionId") int question_id,
 	    Model theModel) {
 	Question theQuestion = questionService.getQuestion(question_id);
-	theModel.addAttribute("questions", theQuestion);
-	return "customer-form";
+	theModel.addAttribute("question", theQuestion);
+	return "question-form";
     }
 
     @GetMapping("/delete")

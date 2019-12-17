@@ -8,6 +8,8 @@
     </head>
     <body>
         <h1>Welcome to Online Quiz Management!</h1>
-	<a href="<c:url value="/question/list" />">Menu</a>
+        <a href="<c:url value="/question/list" />">Question Management</a><br>
+        <a href="<c:url value="" />">Test Management</a>
+        
     </body>
 </html>
