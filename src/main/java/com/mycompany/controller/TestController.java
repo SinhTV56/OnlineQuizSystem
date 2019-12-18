@@ -21,35 +21,35 @@ public class TestController {
 
     @GetMapping("/list")
     public String listTests(Model TModel) {
-	List<Test> theTests = testService.getTests();
-	TModel.addAttribute("tests", theTests);
-	return "test-list";
+        List<Test> theTests = testService.getTests();
+        TModel.addAttribute("tests", theTests);
+        return "test-list";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model TModel) {
-	Test theTest = new Test();
-	TModel.addAttribute("test", theTest);
-	return "test-form";
+        Test theTest = new Test();
+        TModel.addAttribute("test", theTest);
+        return "test-form";
     }
 
     @PostMapping("/saveTest")
     public String saveTest(@ModelAttribute("test") Test theTest) {
-	testService.saveTest(theTest);
-	return "redirect:/test/list";
+        testService.saveTest(theTest);
+        return "redirect:/test/list";
     }
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("testId") int test_id,
-	    Model TModel) {
-	Test theTest = testService.getTest(test_id);
-	TModel.addAttribute("test", theTest);
-	return "test-form";
+            Model TModel) {
+        Test theTest = testService.getTest(test_id);
+        TModel.addAttribute("test", theTest);
+        return "test-form";
     }
 
     @GetMapping("/delete")
     public String deleteTest(@RequestParam("testId") int test_id) {
-	testService.deleteTest(test_id);
-	return "redirect:/test/list";
+        testService.deleteTest(test_id);
+        return "redirect:/test/list";
     }
 }

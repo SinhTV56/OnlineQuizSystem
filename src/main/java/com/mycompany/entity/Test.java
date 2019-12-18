@@ -1,7 +1,6 @@
 package com.mycompany.entity;
 
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Test {
@@ -23,18 +21,17 @@ public class Test {
     private int question_number;
     private String test_name;
     private int testtime;
-    
+
     @ManyToOne
     @JoinColumn(name = "test_type_id")
     private Test_type test_type;
-    
+
     @ManyToMany
     @JoinTable(name = "test_question",
-        joinColumns = @JoinColumn(name = "test_id"),
-        inverseJoinColumns = @JoinColumn(name = "question_id"))
+            joinColumns = @JoinColumn(name = "test_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id"))
     private List<Question> questions;
-    
-    
+
     public Test() {
     }
 
@@ -46,7 +43,6 @@ public class Test {
         this.question_number = question_number;
         this.test_name = test_name;
         this.testtime = testtime;
-        //this.test_type_id = test_type_id;
     }
 
     public int getTest_id() {
@@ -104,13 +100,5 @@ public class Test {
     public void setTesttime(int testtime) {
         this.testtime = testtime;
     }
-
-//    public int getTest_type_id() {
-//        return test_type_id;
-//    }
-
-//    public void setTest_type_id(int test_type_id) {
-//        this.test_type_id = test_type_id;
-//    }
 
 }

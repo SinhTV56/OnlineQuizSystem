@@ -21,35 +21,35 @@ public class QuestionController {
 
     @GetMapping("/list")
     public String listQuestions(Model QModel) {
-	List<Question> theQuestions = questionService.getQuestions();
-	QModel.addAttribute("questions", theQuestions);
-	return "question-list";
+        List<Question> theQuestions = questionService.getQuestions();
+        QModel.addAttribute("questions", theQuestions);
+        return "question-list";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model QModel) {
-	Question theQuestion = new Question();
-	QModel.addAttribute("question", theQuestion);
-	return "question-form";
+        Question theQuestion = new Question();
+        QModel.addAttribute("question", theQuestion);
+        return "question-form";
     }
 
     @PostMapping("/saveQuestion")
     public String saveQuestion(@ModelAttribute("question") Question theQuestion) {
-	questionService.saveQuestion(theQuestion);
-	return "redirect:/question/list";
+        questionService.saveQuestion(theQuestion);
+        return "redirect:/question/list";
     }
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("questionId") int question_id,
-	    Model QModel) {
-	Question theQuestion = questionService.getQuestion(question_id);
-	QModel.addAttribute("question", theQuestion);
-	return "question-form";
+            Model QModel) {
+        Question theQuestion = questionService.getQuestion(question_id);
+        QModel.addAttribute("question", theQuestion);
+        return "question-form";
     }
 
     @GetMapping("/delete")
     public String deleteQuestion(@RequestParam("questionId") int question_id) {
-	questionService.deleteQuestion(question_id);
-	return "redirect:/question/list";
+        questionService.deleteQuestion(question_id);
+        return "redirect:/question/list";
     }
 }

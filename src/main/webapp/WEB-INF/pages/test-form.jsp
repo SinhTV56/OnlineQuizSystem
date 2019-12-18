@@ -1,9 +1,3 @@
-<%-- 
-    Document   : test-form
-    Created on : Dec 8, 2019, 12:16:27 PM
-    Author     : XV
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,10 +19,7 @@
                     <div class="panel-body">
                         <form:form action="saveTest" cssClass="form-horizontal"
                                    method="post" modelAttribute="test">
-
-                            <!-- need to associate this data with test id -->
                             <form:hidden path="test_id" />
-
                             <div class="form-group">
                                 <label for="test_name" class="col-md-3 control-label">Test Name</label>
                                 <div class="col-md-9">
