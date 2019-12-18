@@ -20,16 +20,16 @@ public class QuestionController {
     private QuestionService questionService;
 
     @GetMapping("/list")
-    public String listQuestions(Model theModel) {
+    public String listQuestions(Model QModel) {
 	List<Question> theQuestions = questionService.getQuestions();
-	theModel.addAttribute("questions", theQuestions);
+	QModel.addAttribute("questions", theQuestions);
 	return "question-list";
     }
 
     @GetMapping("/showForm")
-    public String showFormForAdd(Model theModel) {
+    public String showFormForAdd(Model QModel) {
 	Question theQuestion = new Question();
-	theModel.addAttribute("question", theQuestion);
+	QModel.addAttribute("question", theQuestion);
 	return "question-form";
     }
 
@@ -41,9 +41,9 @@ public class QuestionController {
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("questionId") int question_id,
-	    Model theModel) {
+	    Model QModel) {
 	Question theQuestion = questionService.getQuestion(question_id);
-	theModel.addAttribute("question", theQuestion);
+	QModel.addAttribute("question", theQuestion);
 	return "question-form";
     }
 

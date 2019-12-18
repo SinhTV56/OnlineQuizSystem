@@ -20,16 +20,16 @@ public class TestController {
     private TestService testService;
 
     @GetMapping("/list")
-    public String listTests(Model theModel) {
+    public String listTests(Model TModel) {
 	List<Test> theTests = testService.getTests();
-	theModel.addAttribute("tests", theTests);
+	TModel.addAttribute("tests", theTests);
 	return "test-list";
     }
 
     @GetMapping("/showForm")
-    public String showFormForAdd(Model theModel) {
+    public String showFormForAdd(Model TModel) {
 	Test theTest = new Test();
-	theModel.addAttribute("test", theTest);
+	TModel.addAttribute("test", theTest);
 	return "test-form";
     }
 
@@ -41,9 +41,9 @@ public class TestController {
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("testId") int test_id,
-	    Model theModel) {
+	    Model TModel) {
 	Test theTest = testService.getTest(test_id);
-	theModel.addAttribute("test", theTest);
+	TModel.addAttribute("test", theTest);
 	return "test-form";
     }
 

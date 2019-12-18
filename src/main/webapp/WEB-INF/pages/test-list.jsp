@@ -1,5 +1,5 @@
 <%-- 
-    Document   : list-customer
+    Document   : list-test
     Created on : Dec 8, 2019, 12:27:02 PM
     Author     : XV
 --%>
@@ -19,49 +19,50 @@
     <body>
 	<div class="container">
 	    <div class="col-md-offset-1 col-md-10">
-		<h2>QUESTION MANAGEMENT</h2>
+		<h2>TEST MANAGEMENT</h2>
 		<hr />
 
-		<input type="button" value="Create Question"
+		<input type="button" value="Create Test"
 		       onclick="window.location.href = 'showForm'; return false;"
 		       class="btn btn-primary"/>
 		<br/><br/>
 		<div class="panel panel-info">
 			<table class="table table-striped table-bordered">
-                            <tr class="th-question">
-				<th>Question Content</th>
-				<th>Correct Answer</th>
-				<th>Answer 1</th>
-				<th>Answer 2</th>
-                                <th>Answer 3</th>
-                                <th>Action</th>
+                            <tr class="th-test">
+				<th>Quiz Code</th>
+				<th>Quiz Name</th>
+				<th>Total Times</th>
+				<th>Total Questions</th>
+                                <th>Description</th>
+                                <th>Quiz Type</th>
 			    </tr>
 
-			    <!-- loop over and print our questions -->
-			    <c:forEach var="tempQuestion" items="${questions}">
+			    <!-- loop over and print our tests -->
+			    <c:forEach var="tempTest" items="${tests}">
 
-				<!-- construct an "update" link with customer id -->
-				<c:url var="updateLink" value="/question/updateForm">
-				    <c:param name="questionId" value="${tempQuestion.question_id}" />
+				<!-- construct an "update" link with test id -->
+				<c:url var="updateLink" value="/test/updateForm">
+				    <c:param name="testId" value="${tempTest.test_id}" />
 				</c:url>
 
-				<!-- construct an "delete" link with customer id -->
-				<c:url var="deleteLink" value="/question/delete">
-				    <c:param name="questionId" value="${tempQuestion.question_id}" />
+				<!-- construct an "delete" link with test id -->
+				<c:url var="deleteLink" value="/test/delete">
+				    <c:param name="testId" value="${tempTest.test_id}" />
 				</c:url>
 
 				<tr>
-				    <td>${tempQuestion.content}</td>
-				    <td>${tempQuestion.correct_answer}</td>
-				    <td>${tempQuestion.answer_1}</td>
-                                    <td>${tempQuestion.answer_2}</td>
-				    <td>${tempQuestion.answer_3}</td>
+				    <td>${tempTest.test_id}</td>
+				    <td>${tempTest.test_name}</td>
+				    <td>${tempTest.testtime}</td>
+                                    <td>${tempTest.question_number}</td>
+				    <td>${tempTest.description}</td>
+                                    <td>${tempTest.test_type}</td>
 
 				    <td>
 					<!-- display the update link --> 
 					<a href="${updateLink}">Update</a>| 
                                         
-					<a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this question?')))
+					<a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this test?')))
 					    return false">Delete</a>
 				    </td>
 				</tr>
