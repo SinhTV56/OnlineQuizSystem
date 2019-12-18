@@ -32,7 +32,7 @@
 	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	<property name="url" value="jdbc:mysql://localhost:3306/Onlinequiz?createDatabaseIfNotExist=true" />
 	<property name="username" value="root" />
-	<property name="password" value="root" />
+	<property name="password" value="0905561610" />
     </bean>
     
     <bean id="entityManagerFactory"

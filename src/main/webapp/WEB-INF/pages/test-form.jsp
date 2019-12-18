@@ -1,73 +1,86 @@
 <%-- 
     Document   : test-form
-    Created on : Dec 13, 2019, 8:09:15 PM
-    Author     : Admin
+    Created on : Dec 8, 2019, 12:16:27 PM
+    Author     : XV
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-3.4.1.min.js" />"></script>
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="rol-4">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Question Management</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Test Management</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="rol-8">
-                    <center>Create Test</center>
-                    <div style="color: white">
-                        <form>
+            <div class="col-md-offset-2 col-md-7">
+                <h2 class="text-center">Create Test</h2>
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <form:form action="saveTest" cssClass="form-horizontal"
+                                   method="post" modelAttribute="test">
+
+                            <!-- need to associate this data with test id -->
+                            <form:hidden path="test_id" />
+
                             <div class="form-group">
-                                <label>Test Name</label>
-                                <input>
-                                <label>Description</label>
-                                <input>
-                                <label>Test time (minutes)</label>
-                                <input>
-                                <label>Question number</label>
-                                <input>
+                                <label for="test_name" class="col-md-3 control-label">Test Name</label>
+                                <div class="col-md-9">
+                                    <form:input path="test_name" cssClass="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-md-3 control-label">Description</label>
+                                <div class="col-md-9">
+                                    <form:input path="description" cssClass="form-control" />
+                                </div>
                             </div>
 
-                            <div class="form-row align-items-center">
-                                <div class="col-auto my-1">
-                                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected>Type Name</option>
-                                        <option value="1">Toan</option>
-                                        <option value="2">Ly</option>
-                                        <option value="3">Hoa</option>
-                                    </select>
+                            <div class="form-group">
+                                <label for="testtime" class="col-md-3 control-label">Test-time (minutes)</label>
+                                <div class="col-md-9">
+                                    <form:input path="testtime" cssClass="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="question_number" class="col-md-3 control-label">Question number</label>
+                                <div class="col-md-9">
+                                    <form:input path="question_number" cssClass="form-control" />
+                                </div>
+                            </div>
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Test type</label>
+                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9">
+                                    <form:input path="password" cssClass="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-md-offset-3 col-md-9">
+                                    <form:button class="btn btn-primary">Save</form:button>
+                                        <input type="button" value="Cancel"
+                                               onclick="window.location.href = 'list'; return false;"class="btn btn-primary"/>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <label>PassWord</label>
-                            <input>
-                        </form>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
-            </div>>
+            </div>
         </div>
     </body>
 </html>
