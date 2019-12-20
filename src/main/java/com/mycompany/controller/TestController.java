@@ -22,6 +22,8 @@ public class TestController{
 
     @Autowired
     private TestService testService;
+@Autowired 
+private Test_typeService test_typeService;
 
     @GetMapping("/list")
     public String listTests(Model TModel) {
@@ -43,18 +45,18 @@ public class TestController{
         return "redirect:/test/list";
     }
     
-//    @GetMapping("/create")
-//    public String createTest(Model  TModel){
-//        TestModel model = new TestModel();
-//        List<Test_type> test_types = Test_typeService.getTest_types();
-//        List<String> temp = new ArrayList<String>();
-//        for (Test_type test_type : test_types) {
-//           temp.add(test_type.getTest_type_name());
-//        }
-//        model.setList_type(temp);
-//        TModel.addAttribute("test-list", model);
-//        return "test-form";
-//    }
+    @GetMapping("/create")
+    public String createTest(Model  TModel){
+        TestModel model = new TestModel();
+        List<Test_type> test_types = test_typeService.getTest_types();
+        List<String> temp = new ArrayList<String>();
+        for (Test_type test_type : test_types) {
+           temp.add(test_type.getTest_type_name());
+        }
+        model.setList_type(temp);
+        TModel.addAttribute("test-list", model);
+        return "test-form";
+    }
     
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("testId") int test_id,

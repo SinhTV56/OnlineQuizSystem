@@ -13,4 +13,5 @@ public interface Test_typeServiceIF {
     public Test_type getTest_type(int theId);
 
     public void deleteTest_type(int theId);
+    public List<Test_type> getTest_types(String name);
 }

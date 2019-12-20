@@ -32,4 +32,8 @@ public class Test_typeService implements Test_typeServiceIF {
         test_typeDao.deleteById(test_type_id);
     }
 
+    @Override
+    public List<Test_type> getTest_types(String name) {
+ return (List) test_typeDao.getTesttypebyname(name);    }
+
 }

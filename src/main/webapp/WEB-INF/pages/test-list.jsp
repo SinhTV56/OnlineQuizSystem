@@ -17,7 +17,7 @@
                 <hr />
 
                 <input type="button" value="Create Test"
-                       onclick="window.location.href = 'showForm'; return false;"
+                       onclick="window.location.href = 'create'; return false;"
                        class="btn btn-primary"/>
                 <br/><br/>
                 <div class="panel panel-info">
@@ -65,6 +65,7 @@
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
+                
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>

@@ -19,7 +19,7 @@
                     <div class="panel-body">
                         <form:form action="saveTest" cssClass="form-horizontal"
                                    method="post" modelAttribute="test">
-                            <form:hidden path="test_id" />
+                            
                             <div class="form-group">
                                 <label for="test_name" class="col-md-3 control-label">Test Name</label>
                                 <div class="col-md-9">
@@ -47,11 +47,12 @@
                                 </div>
                             </div>
                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Test type</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
+                            <form:select path="test_type">
+                                <form:option value="none">Select</form:option>
+                                <c:forEach items="$(test.list_type)" var="type">
+                                    <form:option value="$(type)"></form:option>
+                                </c:forEach>
+                            </form:select>
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Password</label>
                                 <div class="col-md-9">

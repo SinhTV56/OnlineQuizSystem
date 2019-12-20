@@ -1,7 +1,9 @@
 package com.mycompany.entity;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -17,9 +19,8 @@ public class Question {
     private String answer_3;
     private String content;
     private String correct_answer;
-    @ManyToMany
-    private List<Test> questions;
-
+@ManyToMany(mappedBy = "questions", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Test> tests;
     public Question() {
     }
 
