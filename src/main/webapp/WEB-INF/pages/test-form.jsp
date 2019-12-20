@@ -48,9 +48,9 @@
                             </div>
                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Test type</label>
                             <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Password</label>

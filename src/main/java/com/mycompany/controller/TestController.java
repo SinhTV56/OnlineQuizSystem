@@ -1,7 +1,11 @@
 package com.mycompany.controller;
 
 import com.mycompany.entity.Test;
+import com.mycompany.model.TestModel;
+import com.mycompany.entity.Test_type;
 import com.mycompany.service.TestService;
+import com.mycompany.service.Test_typeService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/test")
-public class TestController {
+public class TestController{
 
     @Autowired
     private TestService testService;
@@ -38,7 +42,20 @@ public class TestController {
         testService.saveTest(theTest);
         return "redirect:/test/list";
     }
-
+    
+//    @GetMapping("/create")
+//    public String createTest(Model  TModel){
+//        TestModel model = new TestModel();
+//        List<Test_type> test_types = Test_typeService.getTest_types();
+//        List<String> temp = new ArrayList<String>();
+//        for (Test_type test_type : test_types) {
+//           temp.add(test_type.getTest_type_name());
+//        }
+//        model.setList_type(temp);
+//        TModel.addAttribute("test-list", model);
+//        return "test-form";
+//    }
+    
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("testId") int test_id,
             Model TModel) {
