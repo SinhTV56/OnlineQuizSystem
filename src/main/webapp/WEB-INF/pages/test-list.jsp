@@ -28,6 +28,7 @@
                             <th>Total Times</th>
                             <th>Total Questions</th>
                             <th>Description</th>
+                            <th>Action</th>
                             <th>Quiz Type</th>
                         </tr>
                         <c:forEach var="tempTest" items="${tests}">
@@ -44,11 +45,11 @@
                                 <td>${tempTest.testtime}</td>
                                 <td>${tempTest.question_number}</td>
                                 <td>${tempTest.description}</td>
-
+                               
                                 <td>
                                     <a href="${updateLink}">Update</a>|
-                                    <a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this test?')))
-                                                return false">Delete</a>
+                                    <a href="${deleteLink}"onclick="if (!(confirm('Are you sure you want to delete this test?')))
+                                        return false">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -56,27 +57,5 @@
                 </div>
             </div>
         </div>
-        
-        <div class="container">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
     </body>
 </html>

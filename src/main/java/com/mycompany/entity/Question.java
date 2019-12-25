@@ -19,8 +19,9 @@ public class Question {
     private String answer_3;
     private String content;
     private String correct_answer;
-@ManyToMany(mappedBy = "questions", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "questions", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Test> tests;
+
     public Question() {
     }
 

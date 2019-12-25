@@ -19,13 +19,14 @@
                     <div class="panel-body">
                         <form:form action="saveTest" cssClass="form-horizontal"
                                    method="post" modelAttribute="test">
-                            
+
                             <div class="form-group">
                                 <label for="test_name" class="col-md-3 control-label">Test Name</label>
                                 <div class="col-md-9">
                                     <form:input path="test_name" cssClass="form-control" />
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="description" class="col-md-3 control-label">Description</label>
                                 <div class="col-md-9">
@@ -46,13 +47,16 @@
                                     <form:input path="question_number" cssClass="form-control" />
                                 </div>
                             </div>
-                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Test type</label>
-                            <form:select path="test_type">
-                                <form:option value="none">Select</form:option>
-                                <c:forEach items="$(test.list_type)" var="type">
-                                    <form:option value="$(type)"></form:option>
-                                </c:forEach>
-                            </form:select>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="test_type_name">Test type</label>
+                                <form:select path="test_type_name">
+                                    <c:forEach items="${test.list_type}" var="type">
+                                        <form:option value="${type}"></form:option>
+                                    </c:forEach>
+                                </form:select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Password</label>
                                 <div class="col-md-9">
@@ -68,7 +72,6 @@
                                                onclick="window.location.href = 'list'; return false;"class="btn btn-primary"/>
                                     </div>
                                 </div>
-
                         </form:form>
                     </div>
                 </div>

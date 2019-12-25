@@ -18,51 +18,48 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/test")
-public class TestController{
+public class TestController {
 
     @Autowired
     private TestService testService;
-@Autowired 
-private Test_typeService test_typeService;
+    @Autowired
+    private Test_typeService test_typeService;
 
     @GetMapping("/list")
     public String listTests(Model TModel) {
-        List<Test> theTests = testService.getTests();
-        TModel.addAttribute("tests", theTests);
+        List<Test> tests = testService.getTests();
+        TModel.addAttribute("tests", tests);
         return "test-list";
     }
 
     @GetMapping("/showForm")
     public String showFormForAdd(Model TModel) {
-        Test theTest = new Test();
-        TModel.addAttribute("test", theTest);
+        Test test = new Test();
+        TModel.addAttribute("test", test);
         return "test-form";
     }
 
     @PostMapping("/saveTest")
-    public String saveTest(@ModelAttribute("test") Test theTest) {
-        testService.saveTest(theTest);
+    public String saveTest(@ModelAttribute("test") Test test) {
+        testService.saveTest(test);
         return "redirect:/test/list";
     }
-    
+
     @GetMapping("/create")
     public String createTest(Model  TModel){
         TestModel model = new TestModel();
         List<Test_type> test_types = test_typeService.getTest_types();
-        List<String> temp = new ArrayList<String>();
-        for (Test_type test_type : test_types) {
-           temp.add(test_type.getTest_type_name());
-        }
+        List<String> temp = new ArrayList<>();
+        for (Test_type test_type : test_types){temp.add(test_type.getTest_type_name());}
         model.setList_type(temp);
-        TModel.addAttribute("test-list", model);
+        TModel.addAttribute("test", model);
         return "test-form";
     }
-    
+
     @GetMapping("/updateForm")
-    public String showFormForUpdate(@RequestParam("testId") int test_id,
-            Model TModel) {
-        Test theTest = testService.getTest(test_id);
-        TModel.addAttribute("test", theTest);
+    public String showFormForUpdate(@RequestParam("testId") int test_id, Model TModel) {
+        Test test = testService.getTest(test_id);
+        TModel.addAttribute("test", test);
         return "test-form";
     }
 

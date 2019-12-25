@@ -22,9 +22,9 @@ public class Test {
     private int question_number;
     private String test_name;
     private int testtime;
-
+    
     @ManyToOne
-    @JoinColumn(name = "test_type_id")
+    @JoinColumn(name = "test_type_name")
     private Test_type test_type;
 
     @ManyToMany(cascade = CascadeType.ALL)
