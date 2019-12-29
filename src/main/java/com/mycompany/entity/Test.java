@@ -22,6 +22,7 @@ public class Test {
     private int question_number;
     private String test_name;
     private int testtime;
+    private String test_type_id;
     
     @ManyToOne
     @JoinColumn(name = "test_type_name")
@@ -36,7 +37,7 @@ public class Test {
     public Test() {
     }
 
-    public Test(int test_id, String active, String description, String password, int question_number, String test_name, int testtime, int test_type_id) {
+    public Test(int test_id, String active, String description, String password, int question_number, String test_name, int testtime, String test_type_id, Test_type test_type, List<Question> questions) {
         this.test_id = test_id;
         this.active = active;
         this.description = description;
@@ -44,7 +45,12 @@ public class Test {
         this.question_number = question_number;
         this.test_name = test_name;
         this.testtime = testtime;
+        this.test_type_id = test_type_id;
+        this.test_type = test_type;
+        this.questions = questions;
     }
+
+
 
     public int getTest_id() {
         return test_id;
@@ -102,4 +108,30 @@ public class Test {
         this.testtime = testtime;
     }
 
+    public Test_type getTest_type() {
+        return test_type;
+    }
+
+    public void setTest_type(Test_type test_type) {
+        this.test_type = test_type;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public String getTest_type_id() {
+        return test_type_id;
+    }
+
+    public void setTest_type_id(String test_type_id) {
+        this.test_type_id = test_type_id;
+    }
+    
+    
 }
+    

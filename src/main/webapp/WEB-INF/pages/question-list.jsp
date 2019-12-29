@@ -49,7 +49,7 @@
                                 <td>
                                     <a href="${updateLink}">Update</a>| 
 
-                                    <a href="${deleteLink}"	onclick="if (!(confirm('Are you sure you want to delete this question?')))
+                                    <a href="${deleteLink}"onclick="if (!(confirm('Are you sure you want to delete this question?')))
                                                 return false">Delete</a>
                                 </td>
                             </tr>

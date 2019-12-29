@@ -12,10 +12,13 @@ public class TestModel {
     private String test_name;
     private int testtime;
     private String test_type;
-    private String test_type_name;
+    private String test_type_id;
     private List<String> list_type;
 
-    public TestModel(int test_id, String active, String description, String password, int question_number, String test_name, int testtime, String test_type, String test_type_name, List<String> list_type) {
+    public TestModel() {
+    }
+
+    public TestModel(int test_id, String active, String description, String password, int question_number, String test_name, int testtime, String test_type, String test_type_id, List<String> list_type) {
         this.test_id = test_id;
         this.active = active;
         this.description = description;
@@ -24,11 +27,8 @@ public class TestModel {
         this.test_name = test_name;
         this.testtime = testtime;
         this.test_type = test_type;
-        this.test_type_name = test_type_name;
+        this.test_type_id = test_type_id;
         this.list_type = list_type;
-    }
-
-    public TestModel() {
     }
 
     public int getTest_id() {
@@ -95,12 +95,12 @@ public class TestModel {
         this.test_type = test_type;
     }
 
-    public String getTest_type_name() {
-        return test_type_name;
+    public String getTest_type_id() {
+        return test_type_id;
     }
 
-    public void setTest_type_name(String test_type_name) {
-        this.test_type_name = test_type_name;
+    public void setTest_type_id(String test_type_id) {
+        this.test_type_id = test_type_id;
     }
 
     public List<String> getList_type() {
@@ -110,6 +110,7 @@ public class TestModel {
     public void setList_type(List<String> list_type) {
         this.list_type = list_type;
     }
+
 
 
 }

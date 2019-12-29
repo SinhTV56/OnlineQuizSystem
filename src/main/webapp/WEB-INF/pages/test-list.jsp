@@ -28,11 +28,12 @@
                             <th>Total Times</th>
                             <th>Total Questions</th>
                             <th>Description</th>
-                            <th>Action</th>
                             <th>Quiz Type</th>
+                            <th>Action</th>
+                            
                         </tr>
                         <c:forEach var="tempTest" items="${tests}">
-                            <c:url var="updateLink" value="/test/updateForm">
+                            <c:url var="updateLink" value="/test/update">
                                 <c:param name="testId" value="${tempTest.test_id}" />
                             </c:url>
                             <c:url var="deleteLink" value="/test/delete">
@@ -45,7 +46,8 @@
                                 <td>${tempTest.testtime}</td>
                                 <td>${tempTest.question_number}</td>
                                 <td>${tempTest.description}</td>
-                               
+                                <td>${tempTest.test_type_id}</td>
+                                
                                 <td>
                                     <a href="${updateLink}">Update</a>|
                                     <a href="${deleteLink}"onclick="if (!(confirm('Are you sure you want to delete this test?')))

@@ -49,12 +49,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="test_type_name">Test type</label>
-                                <form:select path="test_type_name">
+                                <label for="test_type_id" class="col-md-3 control-label">Test type</label>
+                                <div class="col-md-9">
+                                <form:select path="test_type_id" cssClass="form-control">
                                     <c:forEach items="${test.list_type}" var="type">
                                         <form:option value="${type}"></form:option>
                                     </c:forEach>
                                 </form:select>
+                                    </div>
                             </div>
 
                             <div class="form-group">

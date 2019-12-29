@@ -50,17 +50,25 @@ public class TestController {
         TestModel model = new TestModel();
         List<Test_type> test_types = test_typeService.getTest_types();
         List<String> temp = new ArrayList<>();
-        for (Test_type test_type : test_types){temp.add(test_type.getTest_type_name());}
+        for (Test_type test_type : test_types){temp.add(test_type.getTest_type_id());}
         model.setList_type(temp);
         TModel.addAttribute("test", model);
         return "test-form";
     }
 
-    @GetMapping("/updateForm")
+    @GetMapping("/update")
     public String showFormForUpdate(@RequestParam("testId") int test_id, Model TModel) {
         Test test = testService.getTest(test_id);
-        TModel.addAttribute("test", test);
+        
+     TestModel model = new TestModel();
+        List<Test_type> test_types = test_typeService.getTest_types();
+        List<String> temp = new ArrayList<>();
+        for (Test_type test_type : test_types){temp.add(test_type.getTest_type_id());}
+        model.setList_type(temp);
+        
+        TModel.addAttribute("test", model);
         return "test-form";
+
     }
 
     @GetMapping("/delete")
